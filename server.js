@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 
 const io = new Server(server, {
   cors: {
-    origin: 'http://localhost:3001',
+    origin: 'https://online-coding-app-client-pw9l.onrender.com', // Update to your deployed client URL
     methods: ['GET', 'POST'],
   },
 });
@@ -117,13 +117,6 @@ io.on('connection', (socket) => {
       }
     }
   });
-});
-
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
 });
 
 // Start the server
