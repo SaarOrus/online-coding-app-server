@@ -11,12 +11,14 @@ const PORT = process.env.PORT || 3000;
 
 const io = new Server(server, {
   cors: {
-    origin: 'https://online-coding-app-server-ktas.onrender.com',
+    origin: 'https://online-coding-app-client-pw9l.onrender.com',
     methods: ['GET', 'POST'],
   },
 });
 
-app.use(cors());
+app.use(cors({
+  origin: 'https://online-coding-app-client-pw9l.onrender.com',
+}));
 
 const dbPath = path.resolve(__dirname, './codeblocks.db');
 
